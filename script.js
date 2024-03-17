@@ -1,7 +1,7 @@
 // Declare global variables
 let numRows = 0;
 let numCols = 0;
-let colorSelected; 
+let colorSelected = "SELECT"; // set default value to "SELECT" to help with input conditionals and user error
 
 // Add a row
 function addR() {
@@ -40,6 +40,17 @@ function selectColor(){
 
 // Fill all uncolored cells
 function fillU(){
+    if (colorSelected != "SELECT") {
+        let allCells = document.getElementById("grid").getElementsByTagName("td");
+        for (let i = 0; i < allCells.length; i++) {
+            if (allCells[i].style.backgroundColor == "") {
+                allCells[i].style.backgroundColor = colorSelected;
+            }
+        }
+    }
+    else {
+        alert("Please select a color first!");
+    }
     
 }
 
