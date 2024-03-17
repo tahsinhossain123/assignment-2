@@ -1,9 +1,14 @@
 tr,td{
     border:1px;
     border-style: solid;
+    border-color: black;
 }
 td{
     height: 50px;
     width: 50px;
     background-color: white;
+}
+
+body {
+    background-color: green;
 }
