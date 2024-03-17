@@ -5,8 +5,8 @@ let colorSelected;
 
 // Add a row
 function addR() {
-    var table = document.getElementById("grid");
-    var row = table.insertRow(numRows);
+    let table = document.getElementById("grid");
+    let row = table.insertRow(numRows);
     for (let i = 0; i <= numCols; i++) {
         row.insertCell(i);
     }
@@ -20,7 +20,9 @@ function addC() {
 
 // Remove a row
 function removeR() {
-    alert("Clicked Remove Row"); // Replace this line with your code.
+    let table = document.getElementById("grid");
+    table.deleteRow(-1);
+    numRows--;
 }
 
 // Remove a column
