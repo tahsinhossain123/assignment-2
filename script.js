@@ -33,12 +33,14 @@ function removeC() {
 // Set global variable for selected color
 function selectColor(){
     colorSelected = document.getElementById("selectedColorId").value;
-    console.log(colorSelected);
 }
+
+// add function for coloring the clicked cell
+//var cells = document.querySelectorAll()
 
 // Fill all uncolored cells
 function fillU(){
-    alert("Clicked Fill All Uncolored"); // Replace this line with your code.
+    
 }
 
 // Fill all cells
