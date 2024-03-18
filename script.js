@@ -100,6 +100,6 @@ function fillAll() {
 function clearAll(){
     let allCells = document.getElementById("grid").getElementsByTagName("td");
     for (let i = 0; i < allCells.length; i++) {
-        allCells[i].style.backgroundColor = "white";
+        allCells[i].style.backgroundColor = "";
     }
 }
