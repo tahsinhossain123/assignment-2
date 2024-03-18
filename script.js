@@ -36,7 +36,16 @@ function removeR() {
 
 // Remove a column
 function removeC() {
-    alert("Clicked Remove Col"); // Replace this line with your code.
+    let table = document.getElementById("grid");
+    if (numCols > 0) {
+        for (let i = 0; i < numRows; i++) {
+            let row = table.rows[i];
+            if (row.cells.length > 0) { 
+                row.deleteCell(-1);
+            }
+        }
+        numCols--; 
+    }
 }
 
 // Set global variable for selected color
@@ -47,21 +56,7 @@ function selectColor(){
 // add function for coloring the clicked cell
 //var cells = document.querySelectorAll()
 
-// Fill all uncolored cells
-function fillU(){
-    if (colorSelected != "SELECT") {
-        let allCells = document.getElementById("grid").getElementsByTagName("td");
-        for (let i = 0; i < allCells.length; i++) {
-            if (allCells[i].style.backgroundColor == "") {
-                allCells[i].style.backgroundColor = colorSelected;
-            }
-        }
-    }
-    else {
-        alert("Please select a color first!");
-    }
-    
-}
+
 
 // Fill all cells
 function fillAll(){
