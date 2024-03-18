@@ -69,10 +69,31 @@ document.getElementById("grid").addEventListener('click', function(event) {
     }
 });
 
+function fillU(){
+    if (colorSelected != "SELECT") {
+        let allCells = document.getElementById("grid").getElementsByTagName("td");
+        for (let i = 0; i < allCells.length; i++) {
+            if (allCells[i].style.backgroundColor == "") {
+                allCells[i].style.backgroundColor = colorSelected;
+            }
+        }
+    }
+    else {
+        alert("Please select a color first!");
+    }
+}
 
 // Fill all cells
-function fillAll(){
-    alert("Clicked Fill All"); // Replace this line with your code.
+function fillAll() { 
+    if (colorSelected === "SELECT") {
+        alert("Please select a color first!");
+        return;
+    }
+
+    let allCells = document.getElementById("grid").getElementsByTagName("td");
+    for (let i = 0; i < allCells.length; i++) {
+        allCells[i].style.backgroundColor = colorSelected;
+    }
 }
 
 // Clear all cells
