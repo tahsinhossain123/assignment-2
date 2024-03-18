@@ -15,7 +15,16 @@ function addR() {
 
 // Add a column
 function addC() {
-    alert("Clicked Add Col"); // Replace this line with your code.
+    var table = document.getElementById("grid");
+    if(numRows === 0){
+        addR();
+    } else {
+        for (let i = 0; i < numRows; i++) {
+            var row = table.rows[i];
+            row.insertCell(numCols);
+        }
+        numCols++;
+    }
 }
 
 // Remove a row
@@ -27,7 +36,16 @@ function removeR() {
 
 // Remove a column
 function removeC() {
-    alert("Clicked Remove Col"); // Replace this line with your code.
+    let table = document.getElementById("grid");
+    if (numCols > 0) {
+        for (let i = 0; i < numRows; i++) {
+            let row = table.rows[i];
+            if (row.cells.length > 0) { 
+                row.deleteCell(-1);
+            }
+        }
+        numCols--; 
+    }
 }
 
 // Set global variable for selected color
@@ -38,21 +56,19 @@ function selectColor(){
 // add function for coloring the clicked cell
 //var cells = document.querySelectorAll()
 
-// Fill all uncolored cells
-function fillU(){
-    if (colorSelected != "SELECT") {
-        let allCells = document.getElementById("grid").getElementsByTagName("td");
-        for (let i = 0; i < allCells.length; i++) {
-            if (allCells[i].style.backgroundColor == "") {
-                allCells[i].style.backgroundColor = colorSelected;
-            }
+
+// add function for coloring the clicked cell 
+document.getElementById("grid").addEventListener('click', function(event) {
+    const cell = event.target;
+    if (cell.tagName === 'TD') { 
+        if (colorSelected !== "SELECT") {
+            cell.style.backgroundColor = colorSelected;
+        } else {
+            alert("Please select a color first!");
         }
     }
-    else {
-        alert("Please select a color first!");
-    }
-    
-}
+});
+
 
 // Fill all cells
 function fillAll(){
@@ -61,5 +77,8 @@ function fillAll(){
 
 // Clear all cells
 function clearAll(){
-    alert("Clicked Clear All"); // Replace this line with your code.
+    let allCells = document.getElementById("grid").getElementsByTagName("td");
+    for (let i = 0; i < allCells.length; i++) {
+        allCells[i].style.backgroundColor = "white";
+    }
 }
