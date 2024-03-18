@@ -57,6 +57,18 @@ function selectColor(){
 //var cells = document.querySelectorAll()
 
 
+// add function for coloring the clicked cell 
+document.getElementById("grid").addEventListener('click', function(event) {
+    const cell = event.target;
+    if (cell.tagName === 'TD') { 
+        if (colorSelected !== "SELECT") {
+            cell.style.backgroundColor = colorSelected;
+        } else {
+            alert("Please select a color first!");
+        }
+    }
+});
+
 
 // Fill all cells
 function fillAll(){
