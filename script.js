@@ -15,7 +15,16 @@ function addR() {
 
 // Add a column
 function addC() {
-    alert("Clicked Add Col"); // Replace this line with your code.
+    var table = document.getElementById("grid");
+    if(numRows === 0){
+        addR();
+    } else {
+        for (let i = 0; i < numRows; i++) {
+            var row = table.rows[i];
+            row.insertCell(numCols);
+        }
+        numCols++;
+    }
 }
 
 // Remove a row
