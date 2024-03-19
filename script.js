@@ -15,7 +15,16 @@ function addR() {
 
 // Add a column
 function addC() {
-    alert("Clicked Add Col"); // Replace this line with your code.
+    var table = document.getElementById("grid");
+    if(numRows === 0){
+        addR();
+    } else {
+        for (let i = 0; i < numRows; i++) {
+            var row = table.rows[i];
+            row.insertCell(numCols);
+        }
+        numCols++;
+    }
 }
 
 // Remove a row and decrement the total number of rows
@@ -27,7 +36,16 @@ function removeR() {
 
 // Remove a column
 function removeC() {
-    alert("Clicked Remove Col"); // Replace this line with your code.
+    let table = document.getElementById("grid");
+    if (numCols > 0) {
+        for (let i = 0; i < numRows; i++) {
+            let row = table.rows[i];
+            if (row.cells.length > 0) { 
+                row.deleteCell(-1);
+            }
+        }
+        numCols--; 
+    }
 }
 
 // Set global variable for selected color as the value of drop down menu
@@ -35,8 +53,17 @@ function selectColor(){
     colorSelected = document.getElementById("selectedColorId").value;
 }
 
-// add function for coloring the clicked cell
-//var cells = document.querySelectorAll()
+// add function for coloring the clicked cell 
+document.getElementById("grid").addEventListener('click', function(event) {
+    const cell = event.target;
+    if (cell.tagName === 'TD') { 
+        if (colorSelected !== "SELECT") {
+            cell.style.backgroundColor = colorSelected;
+        } else {
+            alert("Please select a color first!");
+        }
+    }
+});
 
 // Fill all uncolored cells. Added conditional to check for user error.
 function fillU(){
@@ -51,12 +78,19 @@ function fillU(){
     else {
         alert("Please select a color first!");
     }
-    
 }
 
 // Fill all cells
-function fillAll(){
-    alert("Clicked Fill All"); // Replace this line with your code.
+function fillAll() { 
+    if (colorSelected === "SELECT") {
+        alert("Please select a color first!");
+        return;
+    }
+
+    let allCells = document.getElementById("grid").getElementsByTagName("td");
+    for (let i = 0; i < allCells.length; i++) {
+        allCells[i].style.backgroundColor = colorSelected;
+    }
 }
 
 // Clear all cells. Finds all table data elements and sets their color to empty
