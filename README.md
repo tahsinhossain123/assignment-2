@@ -10,20 +10,13 @@ This repository is the starter code for Assignment 3 - Grid Maker.
 2. Amira Abdelmohsen
 
 
-### 1. Use the following process to ***import*** the Assignment 3 starter code repository to your GitHub account as the starter codebase
-1.	Log on to GitHub
-2.	Click on the + sign in the top right corner (next to the user icon)
-3.	In the dropdown menu, select "Import repository"
-4.	A new page will open
-5.	In "Your old repository’s clone URL" field, enter: `https://github.com/johnnylaicode/grid-maker-starter-code`
-6.	In "Your new repository details" field, enter your own repository name (e.g., "assignment-3")
-7.	Click on the "Begin import" button to start the process
-8.	After the process completed, your new "assignment-3" repository is created – as a completely independent codebase
-9.	From this point on, you can clone your new repository, make changes, create feature branches, and create/merge pull requests
-
-----------
-### 2. Use the information below to ***clone*** the starter codebase to your local machine
-After creating the starter codebase "assignment-3" repository on GitHub (see above), you can clone it to your local machine. The instructions on how to clone a GitHub repository are available at this [link](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
+### Project Description
+The purpose of this project is to create a website that allows users to manipulate a grid system. We
+have to use JavaScript and DOM (Document Object Model) manipulation techniques in order to
+implement the functionality of the website. The user should be able to add or remove rows and
+columns, select a color, and color individual cells by clicking on the cell, color all uncolored cells with
+the selected color, color all cells with the selected color, and clear all cells' color and restore all cells to
+their initial color.
 
 ----------
 ### 3. Set up and deploy the application to GitHub Pages
